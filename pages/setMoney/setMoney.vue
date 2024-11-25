@@ -58,7 +58,7 @@ export default {
 
     <view class="money-list">
       <view class="money-item">
-        <view class="list-title">数学计算</view>
+        <view class="list-title">计算任务</view>
 
         <view class="money">
           <view class="item">最大值：</view>

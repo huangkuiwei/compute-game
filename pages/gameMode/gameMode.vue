@@ -2,7 +2,7 @@
   <view class="game-mode-page">
     <view class="select" v-if="requestSuccess">
       <view>请选择游戏模式</view>
-      <button type="primary" @click="jumpUrl('/pages/math/math')">数学计算</button>
+      <button type="primary" @click="jumpUrl('/pages/math/math')">计算任务</button>
       <button type="primary" @click="jumpUrl('/pages/setMoney/setMoney')">设置金额</button>
     </view>
   </view>
