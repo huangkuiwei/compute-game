@@ -8,7 +8,7 @@ export default {
     return {
       totalMoney: 0,
       money: 0,
-      countdown: 10,
+      countdown: 20,
       freezeCountdown: false,
       expression: '',
       value: '',
@@ -162,6 +162,12 @@ export default {
       };
     },
 
+    jumpUrl(url) {
+      uni.navigateTo({
+        url: url
+      })
+    },
+
     submit() {
       if (!this.value) {
         uni.showToast({
@@ -182,7 +188,7 @@ export default {
         this.$refs.hongbaoRef.open()
 
         uni.request({
-          url: `http://110.40.131.58:5000/api/app-bind-pwd/addwithdrawrecords/${this.deviceUuid}/${this.money}/2`,
+          url: `http://110.40.131.58:5000/api/app-bind-pwd/addwithdrawrecords/${this.deviceUuid}/${this.money}/4`,
           method: 'POST',
           header:{
             Authorization: `Bearer ${uni.getStorageSync('token')}`
@@ -198,7 +204,7 @@ export default {
 
     next() {
       this.freezeCountdown = false
-      this.countdown = 10
+      this.countdown = 20
       this.value = ''
 
       this.$refs.hongbaoRef.close()
@@ -222,6 +228,10 @@ export default {
         <text class="tip">输入答案</text>
       </view>
       <view class="submit" @click="submit">提交答案</view>
+    </view>
+
+    <view class="user-icon" @click="jumpUrl('/pages/userCenter/userCenter')">
+      <image mode="widthFix" src="/static/images/user-icon.png" />
     </view>
 
     <uni-popup ref="hongbaoRef" :mask-click="false" background-color="#ffffff" border-radius="5px 5px 5px 5px">
@@ -336,6 +346,23 @@ page {
       background: #4cd964;
       color: #ffffff;
       border-radius: 12rpx;
+    }
+  }
+
+  .user-icon {
+    position: absolute;
+    right: 10rpx;
+    bottom: 10%;
+    width: 100rpx;
+    height: 100rpx;
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    image {
+      width: 50rpx;
     }
   }
 
